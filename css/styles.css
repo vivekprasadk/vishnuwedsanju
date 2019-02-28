@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600,700');
+
 body{
-	background: #26181B;
+	background: #201417;
 }
 .intro-section{
 	position: relative;
-	height: 750px;
+	height: 720px;
 }
 .intro-section-bg{
 	position: absolute;
@@ -12,7 +14,7 @@ body{
 	bottom: 0px;
 	background-image: url('../img/intro-bg.png');
 	background-size: contain;
-	width: 728px;
+	width: 828px;
 	background-repeat: no-repeat;
 }
 .intro-section-bg:before{
@@ -23,11 +25,79 @@ body{
 	bottom: 0px;
 	width: 250px;
 	background: rgb(38,24,27);
-	background: linear-gradient(90deg, rgba(38,24,27,1) 0%, rgba(38,24,27,0) 100%);
+	background: linear-gradient(90deg, rgba(32,20,23,1) 0%, rgba(32,20,23,0) 100%);
+}
+.intro-section-bg:after{
+	content: '';
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	height: 250px;
+	background: rgb(38,24,27);
+	background: linear-gradient(0deg, rgba(32,20,23,1) 0%, rgba(32,20,23,0) 100%);
 }
 .intro-typography{
 	max-width: 480px;
 }
 .intro-typography-container{
 	margin-top: 200px;
+}
+.non-intro-section{
+	margin: 120px 0px;
+}
+.person-bio-container:nth-child(1){
+	padding-right: 30px;
+}
+.person-bio-container:nth-child(2){
+	padding-left: 30px;
+}
+.person-bio{
+	position: relative;
+	min-height: 160px;
+	padding-left: 150px;
+}
+.person-bio-dp{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 120px;
+	width: 120px;
+	border-radius: 100%;
+}
+.person-bio-header, .person-bio-header-small{
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #fff;
+	font-size: 26px;
+	margin: 10px 0px 15px 0px;
+}
+.person-bio-header-small{
+	font-size: 19px;
+	color: #111;
+	margin: 25px 0px 10px 0px;
+}
+.person-bio-desc{
+	font-family: 'Open Sans';
+	font-weight: 300;
+	line-height: 1.7;
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 18px;
+	margin: 10px 0px 15px 0px;
+}
+.masonry{
+	column-gap: 25px;
+	column-count: 3;
+}
+.wishes-card{
+	width: 100%;
+	background: #fff;
+	border-radius: 6px;
+	padding: 25px;
+	display: inline-block;
+	margin-bottom: 25px;
+}
+.wishes-card .person-bio-desc{
+	color: #666;
+	margin-top: 0px;
 }
