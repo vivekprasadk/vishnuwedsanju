@@ -78,7 +78,7 @@
   </section>
 	  
 	  <button onclick="saveToFirebase('Anoop Sethumadhavan', 'Lorem ipsum dolor sit amet adipscing lorem ipsum.')">Save to database</button>
-
+	  <button onclick="retriveData()">Retrieve Data</button>
 	  
 <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
 <script>
@@ -108,6 +108,13 @@
             error(); // some error method
         });
 }
+	
+	
+	function retriveData(){
+		return firebase.database().ref('subscription-entries').once('value').then(function(snapshot) {
+		  console.log(snapshot, 9090909090);  
+		});
+	}
 	
 	
 </script>
