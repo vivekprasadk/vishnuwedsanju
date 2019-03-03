@@ -184,30 +184,32 @@
 
 
     function saveToFirebase() {
-      var messageObject = {
-        'name': $("#wish-name").val(),
-        'message': $("#wish-message").val(),
-      };
-      $("#post-text-normal").fadeOut("fast", ()=>{
-        $("#post-text-loading").fadeIn("fast");
-      });
-      $("#post-wish-cta").addClass("disabled");
-      firebase.database().ref('subscription-entries').push().set(messageObject)
-      .then(function(snapshot) {
-        retrieveData(true);
-        $("#wish-name").val("");
-        $("#wish-message").val("");
-
-        $("#wish-modal-normal-header").fadeOut("fast", ()=>{
-          $("#wish-modal-success-header").fadeIn("fast");
+      if($("#wish-message").val().length>0){
+        var messageObject = {
+          'name': $("#wish-name").val(),
+          'message': $("#wish-message").val(),
+        };
+        $("#post-text-normal").fadeOut("fast", ()=>{
+          $("#post-text-loading").fadeIn("fast");
         });
+        $("#post-wish-cta").addClass("disabled");
+        firebase.database().ref('subscription-entries').push().set(messageObject)
+        .then(function(snapshot) {
+          retrieveData(true);
+          $("#wish-name").val("");
+          $("#wish-message").val("");
 
-        $("#wish-modal-normal").fadeOut("fast", ()=>{
-          $("#wish-modal-success").fadeIn("fast");
+          $("#wish-modal-normal-header").fadeOut("fast", ()=>{
+            $("#wish-modal-success-header").fadeIn("fast");
+          });
+
+          $("#wish-modal-normal").fadeOut("fast", ()=>{
+            $("#wish-modal-success").fadeIn("fast");
+          });
+        }, function(error) {
+          console.log('error' + error);
         });
-      }, function(error) {
-        console.log('error' + error);
-      });
+      }
     }
 
     function scrollToWishesSection(){
@@ -267,6 +269,7 @@
     function toggleWishesModal(state){
       if(state==true){
         $("#wishes-modal").fadeIn("fast");
+        $("#wish-name").focus();
       } else {
         $("#wishes-modal").fadeOut("fast");
       }
