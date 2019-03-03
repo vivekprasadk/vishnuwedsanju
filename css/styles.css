@@ -260,8 +260,9 @@ a, button{
 		display: block;
 	}
 	.intro-bg-hidden{
-		visibility: hidden;
-		width: 100%;
+		visibility: hidden !important;
+		width: 100% !important;
+		opacity: 0 !important;
 	}
 	.intro-typography {
 	    max-width: 260px;
