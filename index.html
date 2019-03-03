@@ -77,7 +77,7 @@
     </div>
   </section>
 	  
-	  <button onclick="saveToFirebase('anoop4sethu@gmail.com')">Save to database</button>
+	  <button onclick="saveToFirebase('Anoop Sethumadhavan', 'Lorem ipsum dolor sit amet adipscing lorem ipsum.')">Save to database</button>
 
 	  
 <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
@@ -94,9 +94,10 @@
   firebase.initializeApp(config);
 	
 	
-	function saveToFirebase(email) {
+	function saveToFirebase(name, message) {
     var emailObject = {
-        email: email
+    	'name': name,
+	'message': message,
     };
 
     firebase.database().ref('subscription-entries').push().set(emailObject)
