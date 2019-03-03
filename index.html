@@ -3,27 +3,30 @@
 <!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
 <!--[if IE 8]><html class="preIE9"><![endif]-->
 <!--[if gte IE 9]><!--><html style="margin:0px; padding: 0px;"><!--<![endif]-->
-  <head>
-    <meta charset="UTF-8">
-  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  	<meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Save the Date - Vishnu Weds Anju</title>
-  	<meta name="author" content="name">
-  	<meta name="description" content="description here">
-  	<meta name="keywords" content="keywords,here">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Save the Date - Vishnu Weds Anju</title>
+  <meta name="author" content="name">
+  <meta name="description" content="description here">
+  <meta name="keywords" content="keywords,here">
 
-  	<link rel="stylesheet" type="text/css" href="css/normalize.css">
-  	<link rel="stylesheet" type="text/css" href="css/grid12.css">
-  	<link rel="stylesheet" type="text/css" href="css/animate.css">
-  	<link rel="stylesheet" type="text/css" href="css/styles.css">
-  </head>
-  <body>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/grid12.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
 	<section class="section intro-section">
 		<div class="intro-section-bg"></div>
 		<div class="container">
 			<div class="row intro-typography-container">
 				<div class="col-md-7">
 					<img src="img/intro-typography.png" class="intro-typography">
+          <button class="primary-cta intro-section-cta" onclick="toggleWishesModal(true)">Post a wish</button>
 				</div>
 			</div>
 		</div>
@@ -52,71 +55,189 @@
 
   <section class="section non-intro-section">
     <div class="container">
-      <div class="masonry">
-        <div class="wishes-card">
-          <p class="person-bio-desc">Vestibulum id ligula porta felis euismod semper. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-          <h6 class="person-bio-header-small">Stephen Strange</h6>
+      <div class="row">
+        <div class="col-md-2">
+          <img src="img/where.png" class="section-header">
         </div>
-        <div class="wishes-card">
-          <p class="person-bio-desc">Vestibulum id ligula porta felis euismod semper. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur</p>
-          <h6 class="person-bio-header-small">Stephen Strange</h6>
+        <div class="col-md-2">
+          <a class="person-bio-header-small section-tab-item active" onclick="switchTab('marriage')" id="marriage-tab">
+            Marriage
+          </a>
         </div>
-        <div class="wishes-card">
-          <p class="person-bio-desc">Vestibulum id ligula porta felis euismod semper. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-          <h6 class="person-bio-header-small">Stephen Strange</h6>
+        <div class="col-md-2">
+          <a class="person-bio-header-small section-tab-item" onclick="switchTab('reception')" id="reception-tab">
+            Reception
+          </a>
         </div>
-        <div class="wishes-card">
-          <p class="person-bio-desc">Vestibulum id ligula porta felis euismod semper. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-          <h6 class="person-bio-header-small">Stephen Strange</h6>
+      </div>
+      <div class="row" id="marriage-details" style="display: none;">
+        <div class="col-md-7">
+          <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=saj%20international%20karalam&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{text-align:right;height:300px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:100%;}</style></div>
         </div>
-        <div class="wishes-card">
-          <p class="person-bio-desc">Vestibulum id ligula porta felis euismod semper. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-          <h6 class="person-bio-header-small">Stephen Strange</h6>
+        <div class="col-md-5">
+          <h3 class="person-bio-header">Saj International Auditorium</h3>  
+          <p class="person-bio-desc">Located at a distance of 3 Kms from state highway (Thrissur – Kodungallur Road)and the property is easily accessible. Situated opposite to Holy Trinity Church, Karalam, Kerala. Phone: 086061 40000</p>
+        </div>
+      </div>
+
+      <div class="row" id="reception-details" style="display: none;">
+        <div class="col-md-7">
+          <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=cathedral%20convention%20centre&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{text-align:right;height:300px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:100%;}</style></div>
+        </div>
+        <div class="col-md-5">
+          <h3 class="person-bio-header">Cathedral Convention Centre</h3>  
+          <p class="person-bio-desc">Situated opposite Saint Thomas Cathedral Church, Chandakkunnu, Irinjalakuda, Thrissur, Kerala</p>
+        </div>
+      </div>
+
+    </div>
+  </section>  
+
+
+  <section class="section non-intro-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <img src="img/gallery.png" class="section-header">
+        </div>
+      </div>
+      <div class="owl-carousel owl-theme">
+        <div class="item">
+          <img src="https://images.unsplash.com/photo-1550223640-23097fc71cb2">
+        </div>
+        <div class="item">
+          <img src="https://images.unsplash.com/photo-1549848078-869074eb2e70">
         </div>
       </div>
     </div>
   </section>
-	  
-	  <button onclick="saveToFirebase('Anoop Sethumadhavan', 'Lorem ipsum dolor sit amet adipscing lorem ipsum.')">Save to database</button>
-	  <button onclick="retriveData()">Retrieve Data</button>
-	  
-<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDS9DbavGTtHxm4qlGA-IvZ5PjJ3Fs-56s",
-    authDomain: "vishnuwedsanju.firebaseapp.com",
-    databaseURL: "https://vishnuwedsanju.firebaseio.com",
-    projectId: "vishnuwedsanju",
-    storageBucket: "",
-    messagingSenderId: "207333935706"
-  };
-  firebase.initializeApp(config);
-	
-	
-	function saveToFirebase(name, message) {
-    var emailObject = {
-    	'name': name,
-	'message': message,
-    };
 
-    firebase.database().ref('subscription-entries').push().set(emailObject)
-        .then(function(snapshot) {
-            console.log("Yo! Success nigga!");
-        }, function(error) {
-            console.log('error' + error);
-            error(); // some error method
+
+  <section class="section non-intro-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <img src="img/wall-of-wishes.png" class="section-header">
+        </div>
+      </div>
+      <div class="masonry" id="wishes-container">
+        
+      </div>
+    </div>
+  </section>
+
+  <section class="modal" id="wishes-modal" style="display: none;">
+    <div class="modal-overlay"></div>
+    <div class="modal-content animated fadeInUp">
+      <a onclick="toggleWishesModal(false)" class="modal-close-btn">
+        <svg viewPort="0 0 20 20" style="height: 20px; width: 20px;" version="1.1"
+             xmlns="http://www.w3.org/2000/svg">
+            <line x1="1" y1="13" 
+                  x2="13" y2="1" 
+                  stroke="black" 
+                  stroke-width="2"/>
+            <line x1="1" y1="1" 
+                  x2="13" y2="13" 
+                  stroke="black" 
+                  stroke-width="2"/>
+        </svg>
+      </a>
+      <h3 class="person-bio-header">Wish the couple</h3>
+      <input type="text" class="form-field" name="" placeholder="Your name" id="wish-name">
+      <textarea id="wish-message" class="form-field" rows="7" placeholder="Start typing here..."></textarea>
+      <button class="primary-cta cta-full-width" onclick="saveToFirebase()">Post the wish</button>
+    </div>
+  </section>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDS9DbavGTtHxm4qlGA-IvZ5PjJ3Fs-56s",
+      authDomain: "vishnuwedsanju.firebaseapp.com",
+      databaseURL: "https://vishnuwedsanju.firebaseio.com",
+      projectId: "vishnuwedsanju",
+      storageBucket: "",
+      messagingSenderId: "207333935706"
+    };
+    firebase.initializeApp(config);
+
+
+    function saveToFirebase() {
+      var messageObject = {
+        'name': $("#wish-name").val(),
+        'message': $("#wish-message").val(),
+      };
+      console.log(messageObject);
+      firebase.database().ref('subscription-entries').push().set(messageObject)
+      .then(function(snapshot) {
+        console.log("Yo! Success nigga!");
+        $("#wish-name").val("");
+        $("#wish-message").val("");
+        retriveData();
+      }, function(error) {
+        console.log('error' + error);
+      });
+    }
+
+    function retriveData(){
+
+      var wishes = [];
+
+      return firebase.database().ref('subscription-entries').once('value').then(function(snapshot) {
+
+        snapshot.forEach(function(item) {
+          var itemVal = item.val();
+          wishes.push(itemVal);
         });
-}
-	
-	
-	function retriveData(){
-		return firebase.database().ref('subscription-entries').once('value').then(function(snapshot) {
-		  console.log(snapshot, snapshot.val(), 9090909090);  
-		});
-	}
-	
-	
-</script>
-  </body>
+
+        for (var i = 0; i < wishes.length; i++) {
+          console.log(wishes[i]);
+          $("#wishes-container").append("<div class='wishes-card animated fadeIn'><p class='person-bio-desc'>" + wishes[i].message + "</p><h6 class='person-bio-header-small'>" + wishes[i].name + "</h6></div>");
+        }
+      });
+    }
+
+    $('.owl-carousel').owlCarousel({
+      loop:true,
+      margin:10,
+      nav:true,
+      items: 1,
+      dots: false,
+    });
+
+    $(document).ready(function(){
+      retriveData();
+      switchTab('marriage');
+    });
+
+    function switchTab(tab) {
+      if(tab==='marriage'){
+        $("#reception-details").fadeOut("fast", ()=>{
+          $("#marriage-details").fadeIn("fast");
+          $("#reception-tab").removeClass('active');
+          $("#marriage-tab").addClass('active');
+        });
+      } else {
+        $("#marriage-details").fadeOut("fast", ()=>{
+          $("#reception-details").fadeIn("fast");
+          $("#marriage-tab").removeClass('active');
+          $("#reception-tab").addClass('active');
+        });
+      }
+    }
+
+    function toggleWishesModal(state){
+      if(state==true){
+        $("#wishes-modal").fadeIn("fast");
+      } else {
+        $("#wishes-modal").fadeOut("fast");
+      }
+    }
+
+  </script>
+</body>
 </html>

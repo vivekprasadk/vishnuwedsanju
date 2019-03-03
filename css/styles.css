@@ -2,6 +2,11 @@
 
 body{
 	background: #201417;
+	font-family: 'Open Sans';
+}
+a, button{
+	outline: none;
+	cursor: pointer;
 }
 .intro-section{
 	position: relative;
@@ -69,7 +74,7 @@ body{
 	font-family: 'Open Sans';
 	font-weight: 600;
 	color: #fff;
-	font-size: 26px;
+	font-size: 24px;
 	margin: 10px 0px 15px 0px;
 }
 .person-bio-header-small{
@@ -100,4 +105,122 @@ body{
 .wishes-card .person-bio-desc{
 	color: #666;
 	margin-top: 0px;
+}
+.owl-theme .owl-nav {
+    position: absolute;
+    top: 42%;
+    left: 0px;
+    right: 0px;
+}
+.owl-carousel {
+	position: relative;
+}
+.owl-theme .owl-nav [class*=owl-] {
+    color: #FFF;
+    height: 56px;
+    width: 56px;
+    border-radius: 1000px;
+    background: rgba(0,0,0,0.4) !important;
+    font-size: 32px !important;
+    color: #fff !important;
+}
+.owl-nav .owl-next{
+	float: right;
+	margin-right: 35px !important;
+}
+.owl-nav .owl-prev{
+	float: left;
+	margin-left: 35px !important;
+}
+.section-header{
+	margin-bottom: 35px;
+}
+.section-tab-item{
+	cursor: pointer;
+	margin-top: 13px;
+	display: block;
+	color: #fff;	
+	opacity: 0.5;
+	text-transform: uppercase;
+}
+.section-tab-item.active{
+	opacity: 1;
+}
+.gmap_canvas iframe{
+	border-radius: 8px;
+}
+.modal{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+.modal-overlay{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 99;
+	background: rgba(0,0,0,0.6);
+}
+.modal-content{
+	background: #fff;
+	border-radius: 4px;
+	padding: 30px;
+	width: 480px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	margin-top: 50px;
+	z-index: 999;
+	box-shadow: 0px 10px 80px rgba(0,0,0,0.75); 
+}
+.modal-content .person-bio-header{
+	color: #333;
+	margin-top: 0px;
+	margin-bottom: 30px;
+}
+.form-field{
+	display: block;
+	width: 100%;
+	margin-bottom: 25px;
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 4px;
+	outline: none;
+	line-height: 1.6;
+	resize: none;
+	font-size: 1em;
+}
+.primary-cta{
+	padding: 20px 50px;
+	display: inline-block;
+	text-transform: uppercase;
+	font-family: 'Open Sans';
+	font-weight: 800;
+	color: #1B1214;
+	border-radius: 1000px;
+	border: none;
+	background: rgb(236,194,56);
+	background: linear-gradient(45deg, rgba(236,194,56,1) 0%, rgba(255,242,77,1) 100%);
+	transition: all 0.1s ease-in;
+}
+.primary-cta:hover{
+	opacity: 0.75;
+}
+.intro-section-cta{
+    margin-left: 115px;
+    margin-top: 40px;
+}
+.cta-full-width{
+	display: block;
+	width: 100%;
+}
+.modal-close-btn{
+	position: absolute;
+	right:25px;
+	top: 35px;
 }
