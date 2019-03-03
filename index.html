@@ -25,7 +25,10 @@
 		<div class="container">
 			<div class="row intro-typography-container">
 				<div class="col-md-7">
-					<img src="img/intro-typography.png" class="intro-typography">
+          <div class="relative">
+            <img src="img/intro-typography.gif" class="intro-typography">
+            <img src="img/heart-white.png" class="intro-typography-heart animated heartBeat infinite">
+          </div>
           <button class="primary-cta intro-section-cta" onclick="toggleWishesModal(true)">Post a wish</button>
 				</div>
 			</div>
@@ -59,12 +62,12 @@
         <div class="col-md-2">
           <img src="img/where.png" class="section-header">
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 col-xs-6">
           <a class="person-bio-header-small section-tab-item active" onclick="switchTab('marriage')" id="marriage-tab">
             Marriage
           </a>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 col-xs-6">
           <a class="person-bio-header-small section-tab-item" onclick="switchTab('reception')" id="reception-tab">
             Reception
           </a>
@@ -77,6 +80,7 @@
         <div class="col-md-5">
           <h3 class="person-bio-header">Saj International Auditorium</h3>  
           <p class="person-bio-desc">Located at a distance of 3 Kms from state highway (Thrissur – Kodungallur Road)and the property is easily accessible. Situated opposite to Holy Trinity Church, Karalam, Kerala. Phone: 086061 40000</p>
+          <p class="person-bio-desc font-bold">At 11:45 AM</p>
         </div>
       </div>
 
@@ -87,6 +91,7 @@
         <div class="col-md-5">
           <h3 class="person-bio-header">Cathedral Convention Centre</h3>  
           <p class="person-bio-desc">Situated opposite Saint Thomas Cathedral Church, Chandakkunnu, Irinjalakuda, Thrissur, Kerala</p>
+          <p class="person-bio-desc font-bold">From 6 PM to 8:30 PM</p>
         </div>
       </div>
 
@@ -113,7 +118,7 @@
   </section>
 
 
-  <section class="section non-intro-section">
+  <section class="section non-intro-section" id="wishes-section">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -142,10 +147,22 @@
                   stroke-width="2"/>
         </svg>
       </a>
-      <h3 class="person-bio-header">Wish the couple</h3>
-      <input type="text" class="form-field" name="" placeholder="Your name" id="wish-name">
-      <textarea id="wish-message" class="form-field" rows="7" placeholder="Start typing here..."></textarea>
-      <button class="primary-cta cta-full-width" onclick="saveToFirebase()">Post the wish</button>
+      <h3 class="person-bio-header" id="wish-modal-normal-header">Wish the couple</h3>
+      <h3 class="person-bio-header" id="wish-modal-success-header" style="display: none;">Wish posted</h3>
+      <div id="wish-modal-normal">
+        <input type="text" class="form-field" name="" placeholder="Your name" id="wish-name">
+        <textarea id="wish-message" class="form-field" rows="7" placeholder="Start typing here..."></textarea>
+        <button class="primary-cta cta-full-width" id="post-wish-cta" onclick="saveToFirebase()">
+          <span id="post-text-normal">Post the wish</span>
+          <span id="post-text-loading" style="display: none;">Please wait..</span>
+        </button>
+      </div>
+      <div id="wish-modal-success" style="display: none;">
+        <p class="person-bio-desc">Your wish is successfully posted. Head to the wall of wishes to see more. Also, see you on the 7th of April!</p>
+        <button class="primary-cta cta-full-width" onclick="scrollToWishesSection()">
+          View all wishes
+        </button>
+      </div>
     </div>
   </section>
 
@@ -171,29 +188,46 @@
         'name': $("#wish-name").val(),
         'message': $("#wish-message").val(),
       };
-      console.log(messageObject);
+      $("#post-text-normal").fadeOut("fast", ()=>{
+        $("#post-text-loading").fadeIn("fast");
+      });
+      $("#post-wish-cta").addClass("disabled");
       firebase.database().ref('subscription-entries').push().set(messageObject)
       .then(function(snapshot) {
-        console.log("Yo! Success nigga!");
+        retrieveData(true);
         $("#wish-name").val("");
         $("#wish-message").val("");
-        retriveData();
+
+        $("#wish-modal-normal-header").fadeOut("fast", ()=>{
+          $("#wish-modal-success-header").fadeIn("fast");
+        });
+
+        $("#wish-modal-normal").fadeOut("fast", ()=>{
+          $("#wish-modal-success").fadeIn("fast");
+        });
       }, function(error) {
         console.log('error' + error);
       });
     }
 
-    function retriveData(){
+    function scrollToWishesSection(){
+      toggleWishesModal(false);
+      $([document.documentElement, document.body]).animate({
+        scrollTop: $("#wishes-section").offset().top - 50
+      }, 1000);
+    }
 
+    function retrieveData(clear){
       var wishes = [];
-
+      if(clear==true){
+        $("#wishes-container").html('');
+      }
       return firebase.database().ref('subscription-entries').once('value').then(function(snapshot) {
-
         snapshot.forEach(function(item) {
           var itemVal = item.val();
           wishes.push(itemVal);
         });
-
+        console.log(wishes);
         for (var i = 0; i < wishes.length; i++) {
           console.log(wishes[i]);
           $("#wishes-container").append("<div class='wishes-card animated fadeIn'><p class='person-bio-desc'>" + wishes[i].message + "</p><h6 class='person-bio-header-small'>" + wishes[i].name + "</h6></div>");
@@ -210,7 +244,7 @@
     });
 
     $(document).ready(function(){
-      retriveData();
+      retrieveData(false);
       switchTab('marriage');
     });
 
