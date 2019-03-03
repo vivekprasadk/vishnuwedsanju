@@ -108,10 +108,25 @@
       </div>
       <div class="owl-carousel owl-theme">
         <div class="item">
-          <img src="https://images.unsplash.com/photo-1550223640-23097fc71cb2">
+          <img src="img/DSC_1561.jpg">
         </div>
         <div class="item">
-          <img src="https://images.unsplash.com/photo-1549848078-869074eb2e70">
+          <img src="img/DSC_0687.jpg">
+        </div>
+        <div class="item">
+          <img src="img/DSC_1029.jpg">
+        </div>
+        <div class="item">
+          <img src="img/DSC_0103.jpg">
+        </div>
+        <div class="item">
+          <img src="img/DSC_0113.jpg">
+        </div>
+        <div class="item">
+          <img src="img/DSC_0173.jpg">
+        </div>
+        <div class="item">
+          <img src="img/DSC_1033-ANIMATION.gif">
         </div>
       </div>
     </div>
@@ -150,6 +165,7 @@
       <h3 class="person-bio-header" id="wish-modal-normal-header">Wish the couple</h3>
       <h3 class="person-bio-header" id="wish-modal-success-header" style="display: none;">Wish posted</h3>
       <div id="wish-modal-normal">
+        <p class="person-bio-desc alert-message" style="display: none;" id="wish-error-alert">Please type in a message to continue.</p>
         <input type="text" class="form-field" name="" placeholder="Your name" id="wish-name">
         <textarea id="wish-message" class="form-field" rows="7" placeholder="Start typing here..."></textarea>
         <button class="primary-cta cta-full-width" id="post-wish-cta" onclick="saveToFirebase()">
@@ -209,6 +225,8 @@
         }, function(error) {
           console.log('error' + error);
         });
+      } else {
+        $("#wish-error-alert").fadeIn("fast");
       }
     }
 
@@ -271,6 +289,7 @@
         $("#wishes-modal").fadeIn("fast");
         $("#wish-name").focus();
       } else {
+        $("#wish-error-alert").fadeOut();
         $("#wishes-modal").fadeOut("fast");
       }
     }

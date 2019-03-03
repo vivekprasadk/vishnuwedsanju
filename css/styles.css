@@ -245,6 +245,9 @@ a, button{
 	bottom: 0px;
 	max-height: 28px;
 }
+.alert-message{
+	color: #e74c3c !important;
+}
 
 
 @media(max-width: 800px){
