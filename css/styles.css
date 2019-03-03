@@ -259,8 +259,21 @@ a, button{
 	    height: auto;
 	}
 	.intro-typography-container {
-	    margin-top: 340px;
+	    margin-top: 360px;
 	    text-align: center;
+	    position: relative;
+	}
+	.intro-typography-container:before{
+	    content: '';
+	    position: absolute;
+	    top: -98px;
+	    left: 0px;
+	    height: 70px;
+	    background: rgb(38,24,27);
+	    background: linear-gradient(0deg, rgba(32,20,23,1) 0%, rgba(32,20,23,0) 100%);
+	    right: 0px;
+	    z-index: 0;
+	    width: 100%;
 	}
 	.intro-section-bg{
 		width: 100%;
@@ -286,6 +299,7 @@ a, button{
 	.intro-section-bg:after {
 	    bottom: 26px;
 	    height: 60px;
+	    display: none;
 	}
 	.person-bio{
 		text-align: center;
