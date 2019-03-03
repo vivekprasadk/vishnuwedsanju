@@ -101,7 +101,7 @@
 
     firebase.database().ref('subscription-entries').push().set(emailObject)
         .then(function(snapshot) {
-            success(); // some success method
+            console.log("Yo! Success nigga!");
         }, function(error) {
             console.log('error' + error);
             error(); // some error method
