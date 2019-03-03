@@ -76,6 +76,8 @@
       </div>
     </div>
   </section>
+	  
+	  <button onclick="saveToFirebase('anoop4sethu@gmail.com')">Save to database</button>
 
 	  
 <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
@@ -90,6 +92,23 @@
     messagingSenderId: "207333935706"
   };
   firebase.initializeApp(config);
+	
+	
+	function saveToFirebase(email) {
+    var emailObject = {
+        email: email
+    };
+
+    firebase.database().ref('subscription-entries').push().set(emailObject)
+        .then(function(snapshot) {
+            success(); // some success method
+        }, function(error) {
+            console.log('error' + error);
+            error(); // some error method
+        });
+}
+	
+	
 </script>
   </body>
 </html>
