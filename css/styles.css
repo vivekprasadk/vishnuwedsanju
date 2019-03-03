@@ -239,6 +239,9 @@ a, button{
 .relative{
 	position: relative;
 }
+.center{
+	text-align: center;
+}
 .intro-typography-heart{
 	position: absolute;
 	right: 305px;
