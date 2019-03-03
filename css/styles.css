@@ -312,6 +312,10 @@ a, button{
 		padding: 20px;
 		margin-bottom: 30px;
 	}
+	.person-bio-container:nth-child(2) {
+	    padding: 20px;
+	    padding-top: 0px;
+	}
 	.person-bio-header{
 		font-size: 21px;
 	}
