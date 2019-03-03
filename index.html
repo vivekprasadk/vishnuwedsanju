@@ -112,7 +112,7 @@
 	
 	function retriveData(){
 		return firebase.database().ref('subscription-entries').once('value').then(function(snapshot) {
-		  console.log(snapshot, 9090909090);  
+		  console.log(snapshot, snapshot.val(), 9090909090);  
 		});
 	}
 	
