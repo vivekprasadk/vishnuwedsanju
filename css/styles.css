@@ -266,7 +266,7 @@ a, button{
 	.intro-typography-container:before{
 	    content: '';
 	    position: absolute;
-	    top: -98px;
+	    top: -96px;
 	    left: 0px;
 	    height: 70px;
 	    background: rgb(38,24,27);
