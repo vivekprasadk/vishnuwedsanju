@@ -27,6 +27,15 @@
   <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
   <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135460741-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-135460741-1');
+  </script>
 </head>
 <body>
 	<section class="section intro-section">
@@ -179,11 +188,30 @@
       <h3 class="person-bio-header" id="wish-modal-normal-header">Wish the couple</h3>
       <h3 class="person-bio-header" id="wish-modal-success-header" style="display: none;">Wish posted</h3>
       <div id="wish-modal-normal">
-        <p class="person-bio-desc alert-message" style="display: none;" id="wish-error-alert">Please type in a message to continue.</p>
-        <input type="text" class="form-field" name="" placeholder="Your name" id="wish-name">
+        <p class="person-bio-desc alert-message" style="display: none;" id="wish-error-alert">Please fill up all the information to continue.</p>
+        <p class="person-bio-desc" style="margin-bottom: 10px;">Your name</p>
+        <input type="text" class="form-field" name="" placeholder="Ex: Bruce Wayne" id="wish-name" style="margin-bottom: 30px;">
+        <p class="person-bio-desc" style="margin-bottom: 10px;">Any words for the couple? Share them here, we'll put it up on the wall of wishes section.</p>
         <textarea id="wish-message" class="form-field" rows="7" placeholder="Start typing here..."></textarea>
+
+        <p class="person-bio-desc" style="margin-bottom: 10px;">Lastly, please RSVP the status of your attendance here so that we can make arrangements accordingly.</p>
+        <div class="row status-container">
+          <div class="col-md-6 col-xs-5 status-container-item">
+            <label id="attending">
+              <input type="radio" name="attendance-status" id="attendance-status" checked for="attending" name="" value="attending">
+              <span class="person-bio-desc radio-label">Attending</span>
+            </label>
+          </div>
+          <div class="col-md-6 col-xs-7 status-container-item">
+            <label id="attending">
+              <input type="radio" name="attendance-status" for="attending" name="" value="not-attending">
+              <span class="person-bio-desc radio-label">Unable to attend</span>
+            </label>
+          </div>
+        </div>
+
         <button class="primary-cta cta-full-width" id="post-wish-cta" onclick="saveToFirebase()">
-          <span id="post-text-normal">Post the wish</span>
+          <span id="post-text-normal">Send</span>
           <span id="post-text-loading" style="display: none;">Please wait..</span>
         </button>
       </div>
@@ -219,10 +247,11 @@
 
 
     function saveToFirebase() {
-      if($("#wish-message").val().length>0){
+      if($("#wish-message").val().length>0 && $("#wish-name").val().length>0 && $("input[name='attendance-status']:checked").val()){
         var messageObject = {
           'name': $("#wish-name").val(),
           'message': $("#wish-message").val(),
+          'attendance': (($("input[name='attendance-status']:checked").val() === 'attending')?true:false),
         };
         $("#post-text-normal").fadeOut("fast", ()=>{
           $("#post-text-loading").fadeIn("fast");
@@ -305,11 +334,15 @@
 
     function toggleWishesModal(state){
       if(state==true){
+        $('body').addClass('overflow-hidden');
         $("#wishes-modal").fadeIn("fast");
-        $("#wish-name").focus();
+        // $("#wish-name").focus();
       } else {
+        $('body').removeClass('overflow-hidden');
         $("#wish-error-alert").fadeOut();
         $("#wishes-modal").fadeOut("fast");
+        // $("#wish-message").val("");
+        // $("#wish-name").val("");
       }
     }
 
